@@ -3,14 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		07188064096556A6EDCC45C8 /* Pods_TodoList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA72642E5FCCF94D22F3716E /* Pods_TodoList.framework */; };
+		D038C11F23A909FD00B36863 /* ToDoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D038C11E23A909FD00B36863 /* ToDoListViewController.m */; };
+		D038C12223A90A1400B36863 /* ToDoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D038C12123A90A1400B36863 /* ToDoListView.m */; };
 		D066F4F423A7B93900C4CCB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D066F4F323A7B93900C4CCB6 /* AppDelegate.m */; };
 		D066F4F723A7B93900C4CCB6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D066F4F623A7B93900C4CCB6 /* SceneDelegate.m */; };
-		D066F4FA23A7B93900C4CCB6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D066F4F923A7B93900C4CCB6 /* ViewController.m */; };
 		D066F4FD23A7B93900C4CCB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D066F4FB23A7B93900C4CCB6 /* Main.storyboard */; };
 		D066F4FF23A7B93A00C4CCB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D066F4FE23A7B93A00C4CCB6 /* Assets.xcassets */; };
 		D066F50223A7B93A00C4CCB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D066F50023A7B93A00C4CCB6 /* LaunchScreen.storyboard */; };
@@ -39,13 +40,15 @@
 /* Begin PBXFileReference section */
 		120A58A7EF698B02253FF260 /* Pods-TodoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoList.release.xcconfig"; path = "Target Support Files/Pods-TodoList/Pods-TodoList.release.xcconfig"; sourceTree = "<group>"; };
 		9C94BDF38765EF44F1BD8838 /* Pods-TodoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoList.debug.xcconfig"; path = "Target Support Files/Pods-TodoList/Pods-TodoList.debug.xcconfig"; sourceTree = "<group>"; };
+		D038C11D23A909FD00B36863 /* ToDoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToDoListViewController.h; sourceTree = "<group>"; };
+		D038C11E23A909FD00B36863 /* ToDoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoListViewController.m; sourceTree = "<group>"; };
+		D038C12023A90A1400B36863 /* ToDoListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToDoListView.h; sourceTree = "<group>"; };
+		D038C12123A90A1400B36863 /* ToDoListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoListView.m; sourceTree = "<group>"; };
 		D066F4EF23A7B93900C4CCB6 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D066F4F223A7B93900C4CCB6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D066F4F323A7B93900C4CCB6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D066F4F523A7B93900C4CCB6 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		D066F4F623A7B93900C4CCB6 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		D066F4F823A7B93900C4CCB6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D066F4F923A7B93900C4CCB6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D066F4FC23A7B93900C4CCB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D066F4FE23A7B93A00C4CCB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D066F50123A7B93A00C4CCB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,7 +95,6 @@
 				9C94BDF38765EF44F1BD8838 /* Pods-TodoList.debug.xcconfig */,
 				120A58A7EF698B02253FF260 /* Pods-TodoList.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -102,6 +104,31 @@
 				DA72642E5FCCF94D22F3716E /* Pods_TodoList.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D038C11A23A9099400B36863 /* ViewContorller */ = {
+			isa = PBXGroup;
+			children = (
+				D038C11D23A909FD00B36863 /* ToDoListViewController.h */,
+				D038C11E23A909FD00B36863 /* ToDoListViewController.m */,
+			);
+			path = ViewContorller;
+			sourceTree = "<group>";
+		};
+		D038C11B23A909AD00B36863 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D038C12023A90A1400B36863 /* ToDoListView.h */,
+				D038C12123A90A1400B36863 /* ToDoListView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D038C11C23A909B600B36863 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D066F4E623A7B93900C4CCB6 = {
@@ -131,10 +158,11 @@
 			children = (
 				D066F4F223A7B93900C4CCB6 /* AppDelegate.h */,
 				D066F4F323A7B93900C4CCB6 /* AppDelegate.m */,
+				D038C11C23A909B600B36863 /* Model */,
+				D038C11B23A909AD00B36863 /* View */,
+				D038C11A23A9099400B36863 /* ViewContorller */,
 				D066F4F523A7B93900C4CCB6 /* SceneDelegate.h */,
 				D066F4F623A7B93900C4CCB6 /* SceneDelegate.m */,
-				D066F4F823A7B93900C4CCB6 /* ViewController.h */,
-				D066F4F923A7B93900C4CCB6 /* ViewController.m */,
 				D066F4FB23A7B93900C4CCB6 /* Main.storyboard */,
 				D066F4FE23A7B93A00C4CCB6 /* Assets.xcassets */,
 				D066F50023A7B93A00C4CCB6 /* LaunchScreen.storyboard */,
@@ -336,7 +364,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D066F4FA23A7B93900C4CCB6 /* ViewController.m in Sources */,
+				D038C11F23A909FD00B36863 /* ToDoListViewController.m in Sources */,
+				D038C12223A90A1400B36863 /* ToDoListView.m in Sources */,
 				D066F4F423A7B93900C4CCB6 /* AppDelegate.m in Sources */,
 				D066F50523A7B93A00C4CCB6 /* main.m in Sources */,
 				D066F4F723A7B93900C4CCB6 /* SceneDelegate.m in Sources */,
