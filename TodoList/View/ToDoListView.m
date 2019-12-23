@@ -7,9 +7,12 @@
 //
 
 #import "ToDoListView.h"
+#import "ToDoTableViewCell.h"
 
 @implementation ToDoListView
 
+
+NSString *cellIdentifier = @"todoCell";
 
 
 // MARK: init
@@ -23,8 +26,8 @@
         self.todoTableView.delegate = self;
         self.todoTableView.dataSource = self;
         self.todoTableView.separatorInset = UIEdgeInsetsZero;
-        [self.todoTableView registerClass:UITableViewCell.self forCellReuseIdentifier:@"Cell"];
-        
+        [self.todoTableView registerClass:ToDoTableViewCell.self forCellReuseIdentifier:cellIdentifier];
+        self.todoTableView.rowHeight = 70;
         [self addSubview:self.todoTableView];
     }
     return self;
@@ -36,8 +39,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = self.todoModel[indexPath.row];
+    ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     return cell;
 }
@@ -48,6 +50,10 @@
     return self.todoModel.count;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+}
 
 
 @end
