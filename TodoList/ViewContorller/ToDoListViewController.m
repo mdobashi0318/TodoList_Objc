@@ -8,6 +8,7 @@
 
 #import "ToDoListViewController.h"
 #import "ToDoListView.h"
+#import "InputToDoViewController.h"
 
 @interface ToDoListViewController ()
 
@@ -21,9 +22,14 @@ ToDoListView *todolist;
 NSArray *todoModel;
 
 
+
+// MARK: lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightNavigationTap)];
     
     todolist = [[ToDoListView alloc] init];
     todolist.frame = CGRectMake(0,
@@ -40,5 +46,13 @@ NSArray *todoModel;
     todolist.todoModel = todoModel;
 }
 
+
+
+/// ToDoを入力するための画面をふ開く
+- (void)rightNavigationTap {
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[InputToDoViewController alloc] init]];
+    [self presentViewController:navigationController animated:true completion:nil];
+    
+}
 
 @end

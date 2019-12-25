@@ -12,13 +12,13 @@
 		D038C11F23A909FD00B36863 /* ToDoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D038C11E23A909FD00B36863 /* ToDoListViewController.m */; };
 		D038C12223A90A1400B36863 /* ToDoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D038C12123A90A1400B36863 /* ToDoListView.m */; };
 		D066F4F423A7B93900C4CCB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D066F4F323A7B93900C4CCB6 /* AppDelegate.m */; };
-		D066F4F723A7B93900C4CCB6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D066F4F623A7B93900C4CCB6 /* SceneDelegate.m */; };
-		D066F4FD23A7B93900C4CCB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D066F4FB23A7B93900C4CCB6 /* Main.storyboard */; };
 		D066F4FF23A7B93A00C4CCB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D066F4FE23A7B93A00C4CCB6 /* Assets.xcassets */; };
 		D066F50223A7B93A00C4CCB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D066F50023A7B93A00C4CCB6 /* LaunchScreen.storyboard */; };
 		D066F50523A7B93A00C4CCB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D066F50423A7B93A00C4CCB6 /* main.m */; };
 		D066F50F23A7B93A00C4CCB6 /* TodoListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D066F50E23A7B93A00C4CCB6 /* TodoListTests.m */; };
 		D066F51A23A7B93A00C4CCB6 /* TodoListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D066F51923A7B93A00C4CCB6 /* TodoListUITests.m */; };
+		D0B3A9F623B243CA006E0D5E /* InputToDoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B3A9F523B243CA006E0D5E /* InputToDoView.m */; };
+		D0B3A9FB23B246C8006E0D5E /* InputToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B3A9FA23B246C8006E0D5E /* InputToDoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +50,6 @@
 		D066F4EF23A7B93900C4CCB6 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D066F4F223A7B93900C4CCB6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D066F4F323A7B93900C4CCB6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D066F4F523A7B93900C4CCB6 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		D066F4F623A7B93900C4CCB6 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		D066F4FC23A7B93900C4CCB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D066F4FE23A7B93A00C4CCB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D066F50123A7B93A00C4CCB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D066F50323A7B93A00C4CCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +60,10 @@
 		D066F51523A7B93A00C4CCB6 /* TodoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D066F51923A7B93A00C4CCB6 /* TodoListUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoListUITests.m; sourceTree = "<group>"; };
 		D066F51B23A7B93A00C4CCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0B3A9F423B243CA006E0D5E /* InputToDoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputToDoView.h; sourceTree = "<group>"; };
+		D0B3A9F523B243CA006E0D5E /* InputToDoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputToDoView.m; sourceTree = "<group>"; };
+		D0B3A9F923B246C8006E0D5E /* InputToDoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputToDoViewController.h; sourceTree = "<group>"; };
+		D0B3A9FA23B246C8006E0D5E /* InputToDoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputToDoViewController.m; sourceTree = "<group>"; };
 		DA72642E5FCCF94D22F3716E /* Pods_TodoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -114,6 +115,8 @@
 			children = (
 				D038C11D23A909FD00B36863 /* ToDoListViewController.h */,
 				D038C11E23A909FD00B36863 /* ToDoListViewController.m */,
+				D0B3A9F923B246C8006E0D5E /* InputToDoViewController.h */,
+				D0B3A9FA23B246C8006E0D5E /* InputToDoViewController.m */,
 			);
 			path = ViewContorller;
 			sourceTree = "<group>";
@@ -125,6 +128,8 @@
 				D038C12123A90A1400B36863 /* ToDoListView.m */,
 				D01E35BF23AF6BB900D83986 /* ToDoTableViewCell.h */,
 				D01E35C023AF6BB900D83986 /* ToDoTableViewCell.m */,
+				D0B3A9F423B243CA006E0D5E /* InputToDoView.h */,
+				D0B3A9F523B243CA006E0D5E /* InputToDoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,12 +170,9 @@
 				D066F50423A7B93A00C4CCB6 /* main.m */,
 				D066F4F223A7B93900C4CCB6 /* AppDelegate.h */,
 				D066F4F323A7B93900C4CCB6 /* AppDelegate.m */,
-				D066F4F523A7B93900C4CCB6 /* SceneDelegate.h */,
-				D066F4F623A7B93900C4CCB6 /* SceneDelegate.m */,
 				D038C11C23A909B600B36863 /* Model */,
 				D038C11A23A9099400B36863 /* ViewContorller */,
 				D038C11B23A909AD00B36863 /* View */,
-				D066F4FB23A7B93900C4CCB6 /* Main.storyboard */,
 				D066F4FE23A7B93A00C4CCB6 /* Assets.xcassets */,
 				D066F50023A7B93A00C4CCB6 /* LaunchScreen.storyboard */,
 			);
@@ -302,7 +304,6 @@
 			files = (
 				D066F50223A7B93A00C4CCB6 /* LaunchScreen.storyboard in Resources */,
 				D066F4FF23A7B93A00C4CCB6 /* Assets.xcassets in Resources */,
-				D066F4FD23A7B93900C4CCB6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,11 +371,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D038C11F23A909FD00B36863 /* ToDoListViewController.m in Sources */,
+				D0B3A9FB23B246C8006E0D5E /* InputToDoViewController.m in Sources */,
 				D038C12223A90A1400B36863 /* ToDoListView.m in Sources */,
+				D0B3A9F623B243CA006E0D5E /* InputToDoView.m in Sources */,
 				D066F4F423A7B93900C4CCB6 /* AppDelegate.m in Sources */,
 				D01E35C123AF6BB900D83986 /* ToDoTableViewCell.m in Sources */,
 				D066F50523A7B93A00C4CCB6 /* main.m in Sources */,
-				D066F4F723A7B93900C4CCB6 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,14 +412,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D066F4FB23A7B93900C4CCB6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D066F4FC23A7B93900C4CCB6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D066F50023A7B93A00C4CCB6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -479,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -531,7 +525,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -547,6 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7RPFL7EXKD;
 				INFOPLIST_FILE = TodoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -565,6 +560,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7RPFL7EXKD;
 				INFOPLIST_FILE = TodoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
