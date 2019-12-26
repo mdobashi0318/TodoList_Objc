@@ -7,6 +7,7 @@
 //
 
 #import "InputToDoViewController.h"
+#import "AlertManager.h"
 
 @interface InputToDoViewController ()
 
@@ -38,7 +39,13 @@
 
 /// ToDoを保存する
 - (void)rightNavigationTap {
-    NSLog(@"保存する");
+    
+    [AlertManager alertAction:self
+                             :@"ToDoを保存しました"
+                  handler:^(UIAlertAction *action) {
+        [self.navigationController dismissViewControllerAnimated:true completion:nil];
+    }];
+    
 }
 
 @end
