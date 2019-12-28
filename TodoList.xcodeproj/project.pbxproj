@@ -18,6 +18,7 @@
 		D066F50F23A7B93A00C4CCB6 /* TodoListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D066F50E23A7B93A00C4CCB6 /* TodoListTests.m */; };
 		D066F51A23A7B93A00C4CCB6 /* TodoListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D066F51923A7B93A00C4CCB6 /* TodoListUITests.m */; };
 		D07F43CF23B4E4E00068157C /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D07F43CE23B4E4E00068157C /* AlertManager.m */; };
+		D0B0849023B78F3B00BD1EE4 /* ToDoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B0848F23B78F3B00BD1EE4 /* ToDoModel.m */; };
 		D0B3A9F623B243CA006E0D5E /* InputToDoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B3A9F523B243CA006E0D5E /* InputToDoView.m */; };
 		D0B3A9FB23B246C8006E0D5E /* InputToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B3A9FA23B246C8006E0D5E /* InputToDoViewController.m */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		D066F51B23A7B93A00C4CCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D07F43CE23B4E4E00068157C /* AlertManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertManager.m; sourceTree = "<group>"; };
 		D07F43D023B4F18C0068157C /* AlertManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertManager.h; sourceTree = "<group>"; };
+		D0B0848E23B78F3B00BD1EE4 /* ToDoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToDoModel.h; sourceTree = "<group>"; };
+		D0B0848F23B78F3B00BD1EE4 /* ToDoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoModel.m; sourceTree = "<group>"; };
 		D0B3A9F423B243CA006E0D5E /* InputToDoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputToDoView.h; sourceTree = "<group>"; };
 		D0B3A9F523B243CA006E0D5E /* InputToDoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputToDoView.m; sourceTree = "<group>"; };
 		D0B3A9F923B246C8006E0D5E /* InputToDoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputToDoViewController.h; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 		D038C11C23A909B600B36863 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D0B0848E23B78F3B00BD1EE4 /* ToDoModel.h */,
+				D0B0848F23B78F3B00BD1EE4 /* ToDoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0B0849023B78F3B00BD1EE4 /* ToDoModel.m in Sources */,
 				D038C11F23A909FD00B36863 /* ToDoListViewController.m in Sources */,
 				D0B3A9FB23B246C8006E0D5E /* InputToDoViewController.m in Sources */,
 				D038C12223A90A1400B36863 /* ToDoListView.m in Sources */,
