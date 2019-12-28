@@ -13,6 +13,7 @@
 
 @implementation ToDoTableViewCell
 
+// MARK: Properties
 
 /// タイトルラベル
 UILabel *todoLabel;
@@ -22,6 +23,7 @@ UILabel *dateLabel;
 
 /// 詳細ラベル
 UILabel *detailLabel;
+
 
 
 

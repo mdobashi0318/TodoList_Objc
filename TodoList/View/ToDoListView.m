@@ -12,7 +12,7 @@
 @implementation ToDoListView
 
 
-NSString *cellIdentifier = @"todoCell";
+static NSString *cellIdentifier = @"todoCell";
 
 
 // MARK: init

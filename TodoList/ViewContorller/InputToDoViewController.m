@@ -7,6 +7,7 @@
 //
 
 #import "InputToDoViewController.h"
+#import "InputToDoView.h"
 #import "AlertManager.h"
 
 @interface InputToDoViewController ()
@@ -14,6 +15,11 @@
 @end
 
 @implementation InputToDoViewController
+
+// MARK: Propertiess
+
+InputToDoView *inputToDoView;
+
 
 
 // MARK: lifecycle
@@ -25,7 +31,11 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightNavigationTap)];
     
     self.view.frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, UIScreen.mainScreen.bounds.size.height);
-    self.view.backgroundColor = UIColor.blackColor;
+    
+    
+    
+    inputToDoView = [[InputToDoView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, UIScreen.mainScreen.bounds.size.height)];
+    [self.view addSubview:inputToDoView];
 }
 
 
