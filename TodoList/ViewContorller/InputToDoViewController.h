@@ -15,8 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (instancetype)initWithMode:(TypeMode)mode;
+- (instancetype)initWithsTodo:(TypeMode)mode :(NSInteger)todoId;
 
 @property TypeMode mode;
+@property NSInteger todoId;
 
 @end
 

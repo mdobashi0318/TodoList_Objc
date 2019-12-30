@@ -9,6 +9,7 @@
 #import "ToDoListViewController.h"
 #import "ToDoListView.h"
 #import "InputToDoViewController.h"
+#import <Realm/Realm.h>
 
 @interface ToDoListViewController ()
 
@@ -18,9 +19,11 @@
 
 // MARK: Properties
 
+static RLMRealm *realm;
+
 ToDoListView *todolist;
 
-NSArray *todoModel;
+static RLMResults<ToDoModel *> *todoModel;
 
 
 
@@ -30,6 +33,8 @@ NSArray *todoModel;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    realm = [RLMRealm defaultRealm];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightNavigationTap)];
     
     todolist = [[ToDoListView alloc] init];
@@ -38,21 +43,46 @@ NSArray *todoModel;
                                 UIScreen.mainScreen.bounds.size.width,
                                 UIScreen.mainScreen.bounds.size.height
                                 );
-    
+    todolist.delegate = self;
     
     [self.view addSubview:todolist];
     
     
-    todoModel = [NSArray arrayWithObjects: @"Test1", @"Test2", @"Test3", @"Test4", nil];
+    todoModel = [ToDoModel allObjects];
     todolist.todoModel = todoModel;
 }
-
 
 
 /// ToDoを入力するための画面を開く
 - (void)rightNavigationTap {
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[InputToDoViewController alloc] initWithMode:add]];
     [self presentViewController:navigationController animated:true completion:nil];
+    
+}
+
+
+
+
+/// MARK: InputToDoViewDelegate
+
+
+
+- (void)openTodoDetail:(NSInteger)row {
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[InputToDoViewController alloc] initWithsTodo:detail:row]];
+    [self presentViewController:navigationController animated:true completion:nil];
+}
+
+
+
+/// 編集画面を開く
+- (void)openTodoEdit:(NSInteger)row {
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[InputToDoViewController alloc] initWithsTodo:edit:row]];
+    [self presentViewController:navigationController animated:true completion:nil];
+    
+}
+
+/// Todoの削除
+- (void)todoDelete:(NSInteger)row {
     
 }
 

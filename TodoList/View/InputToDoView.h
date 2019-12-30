@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface InputToDoView : UIView<UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>
+
+/// タイトル入力テキストフィールド
+@property UITextField *titleTextField;
+/// 日付入力テキストフィールド
+@property UITextField *dateTextField;
+/// 詳細入力テキストフィールド
+@property UITextView *detailTextView;
 
 @property NSString *todotitle;
 @property NSString *tododate;

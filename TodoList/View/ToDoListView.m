@@ -27,7 +27,7 @@ static NSString *cellIdentifier = @"todoCell";
         self.todoTableView.dataSource = self;
         self.todoTableView.separatorInset = UIEdgeInsetsZero;
         [self.todoTableView registerClass:ToDoTableViewCell.self forCellReuseIdentifier:cellIdentifier];
-        self.todoTableView.rowHeight = 70;
+        self.todoTableView.rowHeight = 60;
         [self addSubview:self.todoTableView];
     }
     return self;
@@ -40,20 +40,37 @@ static NSString *cellIdentifier = @"todoCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
+    if(self.todoModel.count == 0){
+        cell.textLabel.text = @"Todoが登録されていません";
+    } else {
+        
+        
+        [cell setValue:self.todoModel[indexPath.row].title
+                      :self.todoModel[indexPath.row].todoDate
+                      :self.todoModel[indexPath.row].toDoDetail
+         ];
+    }
     return cell;
 }
 
 
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if(self.todoModel.count == 0){
+        return 1;
+    }
     return self.todoModel.count;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+       [self.delegate openTodoDetail:indexPath.row];
 }
+
+
+
 
 
 @end

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Realm/Realm.h>
+#import "InputToDoViewDelegate.h"
+#import "ToDoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ToDoListViewController : UIViewController
+@interface ToDoListViewController : UIViewController<InputToDoViewDelegate>
 
 @end
 

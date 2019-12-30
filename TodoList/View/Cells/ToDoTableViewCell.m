@@ -24,7 +24,7 @@ UILabel *dateLabel;
 /// 詳細ラベル
 UILabel *detailLabel;
 
-
+NSString *titleText;
 
 
 // MARK: Init
@@ -32,27 +32,36 @@ UILabel *detailLabel;
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     todoLabel = [[UILabel alloc] init];
-    todoLabel.frame = CGRectMake(5, self.bounds.origin.y + 5, 0, 0);
-    todoLabel.text = @"テストタイトル";
-    [todoLabel sizeToFit];
+    todoLabel.frame = CGRectMake(5, self.bounds.origin.y + 5, 0, 20);
+    
     [self addSubview:todoLabel];
     
     dateLabel = [[UILabel alloc] init];
-    dateLabel.frame = CGRectMake(5, todoLabel.bounds.size.height + todoLabel.bounds.origin.y + 5, 0, 0);
-    NSString *date = [NSString stringWithFormat:@"%@", [NSDate date]];
-    dateLabel.text = date;
-    [dateLabel sizeToFit];
+    dateLabel.frame = CGRectMake(5, todoLabel.bounds.size.height + todoLabel.bounds.origin.y + 5, 0, 20);
+    
+    
     [self addSubview:dateLabel];
     
     detailLabel = [[UILabel alloc] init];
-    detailLabel.frame = CGRectMake(5, dateLabel.frame.size.height + dateLabel.frame.origin.y, 0, 0);
-    detailLabel.text = @"詳細";
-    [detailLabel sizeToFit];
+    detailLabel.frame = CGRectMake(5, dateLabel.frame.size.height + dateLabel.frame.origin.y, 0, 20);
+    
     [self addSubview:detailLabel];
     
     return self;
 }
 
+
+
+- (void)setValue:(NSString*)title :(NSString*)date :(NSString*)detail {
+    todoLabel.text = title;
+    [todoLabel sizeToFit];
+    
+    dateLabel.text = date;
+    [dateLabel sizeToFit];
+    
+    detailLabel.text = detail;
+    [detailLabel sizeToFit];
+}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

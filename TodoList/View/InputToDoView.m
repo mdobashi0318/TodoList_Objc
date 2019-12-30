@@ -9,6 +9,7 @@
 #import "InputToDoView.h"
 #import <Realm/Realm.h>
 
+
 @implementation InputToDoView
 
 UITableView* inputTableView;
@@ -17,16 +18,6 @@ UITableView* inputTableView;
 // MARK: Properties
 
 static NSString *cellIdentifier = @"todoCell";
-
-/// タイトル入力テキストフィールド
-UITextField *titleTextField;
-
-/// 日付入力テキストフィールド
-UITextField *dateTextField;
-
-/// 詳細入力テキストフィールド
-UITextView *detailTextView;
-
 
 
 
@@ -67,32 +58,32 @@ UITextView *detailTextView;
     switch (indexPath.section) {
         case 0:
             /// Todoのタイトル
-            titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, cell.bounds.size.width, cell.bounds.size.height)];
-            titleTextField.placeholder = @"タイトルを入力してください";
-            titleTextField.tag = 1;
-            [titleTextField addTarget:self
+            self.titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, cell.bounds.size.width, cell.bounds.size.height)];
+            self.titleTextField.placeholder = @"タイトルを入力してください";
+            self.titleTextField.tag = 1;
+            [self.titleTextField addTarget:self
                                action:@selector(didChangeTextField:)
                      forControlEvents:UIControlEventEditingChanged
              ];
-            [cell addSubview:titleTextField];
+            [cell addSubview:self.titleTextField];
             break;
             
         case 1:
             /// Todoの期限
-            dateTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, cell.bounds.size.width, cell.bounds.size.height)];
-            dateTextField.placeholder = @"期限を入力してください";
-            dateTextField.tag = 2;
-            [dateTextField addTarget:self
+            self.dateTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, cell.bounds.size.width, cell.bounds.size.height)];
+            self.dateTextField.placeholder = @"期限を入力してください";
+            self.dateTextField.tag = 2;
+            [self.dateTextField addTarget:self
                                action:@selector(didChangeTextField:)
                      forControlEvents:UIControlEventEditingChanged
              ];
-            [cell addSubview:dateTextField];
+            [cell addSubview:self.dateTextField];
             break;
             
         case 2:
-            detailTextView = [[UITextView alloc] initWithFrame:CGRectMake(10, 0, cell.bounds.size.width, cell.bounds.size.height)];
-            detailTextView.delegate = self;
-            [cell addSubview:detailTextView];
+            self.detailTextView = [[UITextView alloc] initWithFrame:CGRectMake(10, 0, cell.bounds.size.width, cell.bounds.size.height)];
+            self.detailTextView.delegate = self;
+            [cell addSubview:self.detailTextView];
             break;
             
         default:

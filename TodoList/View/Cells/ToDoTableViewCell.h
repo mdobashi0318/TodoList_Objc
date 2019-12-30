@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ToDoTableViewCell : UITableViewCell
 
+- (void)setValue:(NSString*)title :(NSString*)date :(NSString*)detail;
 
 
 @end

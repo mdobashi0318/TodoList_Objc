@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InputToDoViewDelegate.h"
+#import <Realm/Realm.h>
+#import "ToDoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ToDoListView : UIView<UITableViewDelegate, UITableViewDataSource>
 
 @property UITableView *todoTableView;
-@property NSArray *todoModel;
+
+@property (weak, nonatomic) id <InputToDoViewDelegate> delegate;
+
+@property RLMResults<ToDoModel *> *todoModel;
 
 @end
 

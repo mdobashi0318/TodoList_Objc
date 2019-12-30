@@ -73,6 +73,7 @@
 		D0B3A9FA23B246C8006E0D5E /* InputToDoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputToDoViewController.m; sourceTree = "<group>"; };
 		D0FC454F23B9D39500B0B2FF /* Mode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mode.h; sourceTree = "<group>"; };
 		D0FC455023B9D3A400B0B2FF /* Mode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mode.m; sourceTree = "<group>"; };
+		D0FC455223B9F45F00B0B2FF /* InputToDoViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputToDoViewDelegate.h; sourceTree = "<group>"; };
 		DA72642E5FCCF94D22F3716E /* Pods_TodoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,10 +136,9 @@
 			children = (
 				D038C12023A90A1400B36863 /* ToDoListView.h */,
 				D038C12123A90A1400B36863 /* ToDoListView.m */,
-				D01E35BF23AF6BB900D83986 /* ToDoTableViewCell.h */,
-				D01E35C023AF6BB900D83986 /* ToDoTableViewCell.m */,
 				D0B3A9F423B243CA006E0D5E /* InputToDoView.h */,
 				D0B3A9F523B243CA006E0D5E /* InputToDoView.m */,
+				D0FC455323B9F55C00B0B2FF /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,10 +214,20 @@
 			children = (
 				D07F43D023B4F18C0068157C /* AlertManager.h */,
 				D07F43CE23B4E4E00068157C /* AlertManager.m */,
+				D0FC455223B9F45F00B0B2FF /* InputToDoViewDelegate.h */,
 				D0FC454F23B9D39500B0B2FF /* Mode.h */,
 				D0FC455023B9D3A400B0B2FF /* Mode.m */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		D0FC455323B9F55C00B0B2FF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D01E35BF23AF6BB900D83986 /* ToDoTableViewCell.h */,
+				D01E35C023AF6BB900D83986 /* ToDoTableViewCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
