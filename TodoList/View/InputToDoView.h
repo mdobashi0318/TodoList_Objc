@@ -10,11 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface InputToDoView : UIView<UITableViewDelegate, UITableViewDataSource>
+@interface InputToDoView : UIView<UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>
 
-@property UITextField *titleTextField;
-@property UITextField *dateTextField;
-@property UITextView *detailTextView;
+@property NSString *todotitle;
+@property NSString *tododate;
+@property NSString *tododetail;
 
 @end
 

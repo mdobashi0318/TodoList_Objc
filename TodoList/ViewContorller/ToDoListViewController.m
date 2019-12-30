@@ -49,9 +49,9 @@ NSArray *todoModel;
 
 
 
-/// ToDoを入力するための画面をふ開く
+/// ToDoを入力するための画面を開く
 - (void)rightNavigationTap {
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[InputToDoViewController alloc] init]];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[InputToDoViewController alloc] initWithMode:add]];
     [self presentViewController:navigationController animated:true completion:nil];
     
 }

@@ -21,6 +21,7 @@
 		D0B0849023B78F3B00BD1EE4 /* ToDoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B0848F23B78F3B00BD1EE4 /* ToDoModel.m */; };
 		D0B3A9F623B243CA006E0D5E /* InputToDoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B3A9F523B243CA006E0D5E /* InputToDoView.m */; };
 		D0B3A9FB23B246C8006E0D5E /* InputToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B3A9FA23B246C8006E0D5E /* InputToDoViewController.m */; };
+		D0FC455123B9D3A400B0B2FF /* Mode.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FC455023B9D3A400B0B2FF /* Mode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		D0B3A9F523B243CA006E0D5E /* InputToDoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputToDoView.m; sourceTree = "<group>"; };
 		D0B3A9F923B246C8006E0D5E /* InputToDoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputToDoViewController.h; sourceTree = "<group>"; };
 		D0B3A9FA23B246C8006E0D5E /* InputToDoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputToDoViewController.m; sourceTree = "<group>"; };
+		D0FC454F23B9D39500B0B2FF /* Mode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mode.h; sourceTree = "<group>"; };
+		D0FC455023B9D3A400B0B2FF /* Mode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mode.m; sourceTree = "<group>"; };
 		DA72642E5FCCF94D22F3716E /* Pods_TodoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -211,6 +214,8 @@
 			children = (
 				D07F43D023B4F18C0068157C /* AlertManager.h */,
 				D07F43CE23B4E4E00068157C /* AlertManager.m */,
+				D0FC454F23B9D39500B0B2FF /* Mode.h */,
+				D0FC455023B9D3A400B0B2FF /* Mode.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -388,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0FC455123B9D3A400B0B2FF /* Mode.m in Sources */,
 				D0B0849023B78F3B00BD1EE4 /* ToDoModel.m in Sources */,
 				D038C11F23A909FD00B36863 /* ToDoListViewController.m in Sources */,
 				D0B3A9FB23B246C8006E0D5E /* InputToDoViewController.m in Sources */,

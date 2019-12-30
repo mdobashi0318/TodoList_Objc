@@ -18,6 +18,16 @@ UITableView* inputTableView;
 
 static NSString *cellIdentifier = @"todoCell";
 
+/// タイトル入力テキストフィールド
+UITextField *titleTextField;
+
+/// 日付入力テキストフィールド
+UITextField *dateTextField;
+
+/// 詳細入力テキストフィールド
+UITextView *detailTextView;
+
+
 
 
 // MARK: Init
@@ -57,21 +67,33 @@ static NSString *cellIdentifier = @"todoCell";
     switch (indexPath.section) {
         case 0:
             /// Todoのタイトル
-            self.titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, cell.bounds.size.width, cell.bounds.size.height)];
-            self.titleTextField.placeholder = @"タイトルを入力してください";
-            
-            [cell addSubview:self.titleTextField];
+            titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, cell.bounds.size.width, cell.bounds.size.height)];
+            titleTextField.placeholder = @"タイトルを入力してください";
+            titleTextField.tag = 1;
+            [titleTextField addTarget:self
+                               action:@selector(didChangeTextField:)
+                     forControlEvents:UIControlEventEditingChanged
+             ];
+            [cell addSubview:titleTextField];
+            break;
             
         case 1:
             /// Todoの期限
-            self.dateTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, cell.bounds.size.width, cell.bounds.size.height)];
-            self.dateTextField.placeholder = @"期限を入力してください";
-            self.dateTextField.text = @"期限を入力してください";
-            [cell addSubview:self.dateTextField];
+            dateTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, cell.bounds.size.width, cell.bounds.size.height)];
+            dateTextField.placeholder = @"期限を入力してください";
+            dateTextField.tag = 2;
+            [dateTextField addTarget:self
+                               action:@selector(didChangeTextField:)
+                     forControlEvents:UIControlEventEditingChanged
+             ];
+            [cell addSubview:dateTextField];
+            break;
             
         case 2:
-            self.detailTextView = [[UITextView alloc] initWithFrame:CGRectMake(10, 0, cell.bounds.size.width, cell.bounds.size.height)];
-            [cell addSubview:self.detailTextView];
+            detailTextView = [[UITextView alloc] initWithFrame:CGRectMake(10, 0, cell.bounds.size.width, cell.bounds.size.height)];
+            detailTextView.delegate = self;
+            [cell addSubview:detailTextView];
+            break;
             
         default:
             break;
@@ -109,8 +131,10 @@ static NSString *cellIdentifier = @"todoCell";
             break;
         case 1:
             label.text = @"期限";
+            break;
         case 2:
             label.text = @"詳細";
+            break;
             
         default:
             break;
@@ -121,5 +145,31 @@ static NSString *cellIdentifier = @"todoCell";
     return headerView;
 }
 
+
+
+
+
+// MARK: UITextViewDelegate
+
+- (void)textViewDidChange:(UITextView *)textView {
+    self.tododetail = textView.text;
+}
+
+
+
+
+
+// MARK: TextField
+
+- (void)didChangeTextField:(UITextField *)textField {
+    
+    if (textField.tag == 1) {
+        self.todotitle = textField.text;
+        
+    } else {
+        self.tododate = textField.text;
+    }
+    
+}
 
 @end
