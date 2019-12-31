@@ -19,6 +19,7 @@ UITableView* inputTableView;
 
 static NSString *cellIdentifier = @"todoCell";
 
+UIDatePicker *datePicker;
 
 
 // MARK: Init
@@ -39,6 +40,11 @@ static NSString *cellIdentifier = @"todoCell";
         
         [self addSubview:inputTableView];
         
+        
+        datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0,
+                                                                    0, UIScreen.mainScreen.bounds.size.width,
+                                                                    300)];
+        [datePicker addTarget:self action:@selector(onDidChangeDate:) forControlEvents:UIControlEventValueChanged];
         
     }
     return self;
@@ -78,6 +84,7 @@ static NSString *cellIdentifier = @"todoCell";
                                action:@selector(didChangeTextField:)
                      forControlEvents:UIControlEventEditingChanged
              ];
+            self.dateTextField.inputView = datePicker;
             [cell addSubview:self.dateTextField];
             break;
             
@@ -163,6 +170,15 @@ static NSString *cellIdentifier = @"todoCell";
     } else {
         self.tododate = textField.text;
     }
+    
+}
+
+
+- (void)onDidChangeDate:(UIDatePicker*)sender {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy/MM/dd hh:mm";
+    self.dateTextField.text = [NSString stringWithFormat:@"%@", sender.date];
+    self.tododate = [NSString stringWithFormat:@"%@", sender.date];
     
 }
 
