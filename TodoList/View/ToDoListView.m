@@ -27,7 +27,7 @@ static NSString *cellIdentifier = @"todoCell";
         self.todoTableView.dataSource = self;
         self.todoTableView.separatorInset = UIEdgeInsetsZero;
         [self.todoTableView registerClass:ToDoTableViewCell.self forCellReuseIdentifier:cellIdentifier];
-        self.todoTableView.rowHeight = 60;
+        self.todoTableView.rowHeight = 65;
         [self addSubview:self.todoTableView];
     }
     return self;
@@ -42,13 +42,13 @@ static NSString *cellIdentifier = @"todoCell";
     ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if(self.todoModel.count == 0){
         cell.textLabel.text = @"Todoが登録されていません";
+        
     } else {
-        
-        
         [cell setValue:self.todoModel[indexPath.row].title
                       :self.todoModel[indexPath.row].todoDate
                       :self.todoModel[indexPath.row].toDoDetail
          ];
+        
     }
     return cell;
 }
@@ -56,7 +56,6 @@ static NSString *cellIdentifier = @"todoCell";
 
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     if(self.todoModel.count == 0){
         return 1;
     }
@@ -69,6 +68,45 @@ static NSString *cellIdentifier = @"todoCell";
        [self.delegate openTodoDetail:indexPath.row];
 }
 
+
+
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(self.todoModel.count == 0){
+           return nil;
+       }
+    return indexPath;
+}
+
+
+
+/// セルのスワイプ
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewRowAction *edit = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault
+                                                                    title:@"編集"
+                                                                  handler:^(UITableViewRowAction* action, NSIndexPath* index) {
+        [self.delegate openTodoEdit:indexPath.row];
+    }];
+    edit.backgroundColor = UIColor.orangeColor;
+    
+    UITableViewRowAction *delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
+                                                                    title:@"削除"
+                                                                  handler:^(UITableViewRowAction* action, NSIndexPath* index) {
+        [self.delegate todoDelete:indexPath.row];
+    }];
+    
+    return @[delete, edit];
+    
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(self.todoModel.count == 0){
+           return false;
+       }
+    return true;
+}
 
 
 

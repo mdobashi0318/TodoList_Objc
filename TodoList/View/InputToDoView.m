@@ -29,12 +29,13 @@ static NSString *cellIdentifier = @"todoCell";
     if (self) {
         self.backgroundColor = UIColor.whiteColor;
         
-        inputTableView = [[UITableView alloc] initWithFrame:self.frame];
+        inputTableView = [[UITableView alloc] initWithFrame:self.frame style:UITableViewStyleGrouped];
         inputTableView.delegate = self;
         inputTableView.dataSource = self;
         inputTableView.separatorInset = UIEdgeInsetsZero;
         [inputTableView registerClass:UITableViewCell.self forCellReuseIdentifier:cellIdentifier];
         inputTableView.rowHeight = 50;
+        inputTableView.allowsSelection = false;
         
         [self addSubview:inputTableView];
         
@@ -137,7 +138,9 @@ static NSString *cellIdentifier = @"todoCell";
 }
 
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30;
+}
 
 
 // MARK: UITextViewDelegate

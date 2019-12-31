@@ -50,7 +50,7 @@ InputToDoView *inputToDoView;
     self.mode = mode;
     self.todoId = todoId;
     
-    openTodo = [ToDoModel objectsWhere:[NSString stringWithFormat:@"todoId == '%ld'", (NSInteger)self.todoId]];
+    openTodo = [ToDoModel objectsWhere:[NSString stringWithFormat:@"todoId == '%ld'", (NSInteger)self.todoId + 1]];
     
     
     return self;
@@ -79,10 +79,16 @@ InputToDoView *inputToDoView;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    if(openTodo != nil) {
+    if(self.mode != add && openTodo != nil) {
         inputToDoView.titleTextField.text = [NSString stringWithFormat:@"%1$@", openTodo.firstObject.title];
         inputToDoView.dateTextField.text = [NSString stringWithFormat:@"%1$@", openTodo.firstObject.todoDate];
         inputToDoView.detailTextView.text = [NSString stringWithFormat:@"%1$@", openTodo.firstObject.toDoDetail];
+        
+        if(self.mode == detail) {
+            inputToDoView.titleTextField.userInteractionEnabled = false;
+            inputToDoView.dateTextField.userInteractionEnabled = false;
+            inputToDoView.detailTextView.userInteractionEnabled = false;
+        }
         
     }
     

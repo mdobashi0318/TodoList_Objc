@@ -10,6 +10,7 @@
 #import "ToDoListView.h"
 #import "InputToDoViewController.h"
 #import <Realm/Realm.h>
+#import "AlertManager.h"
 
 @interface ToDoListViewController ()
 
@@ -48,14 +49,28 @@ static RLMResults<ToDoModel *> *todoModel;
     [self.view addSubview:todolist];
     
     
-    todoModel = [ToDoModel allObjects];
-    todolist.todoModel = todoModel;
+    
 }
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    
+    if(todoModel != nil){
+        todoModel = nil;
+    }
+    todoModel = [ToDoModel allObjects];
+    todolist.todoModel = todoModel;
+    [todolist.todoTableView reloadData];
+}
 
 /// ToDoを入力するための画面を開く
 - (void)rightNavigationTap {
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[InputToDoViewController alloc] initWithMode:add]];
+    if (@available(iOS 13.0, *)) {
+        navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
+    }
     [self presentViewController:navigationController animated:true completion:nil];
     
 }
@@ -68,8 +83,7 @@ static RLMResults<ToDoModel *> *todoModel;
 
 
 - (void)openTodoDetail:(NSInteger)row {
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[InputToDoViewController alloc] initWithsTodo:detail:row]];
-    [self presentViewController:navigationController animated:true completion:nil];
+    [self.navigationController pushViewController:[[InputToDoViewController alloc] initWithsTodo:detail:row] animated:true];
 }
 
 
@@ -77,13 +91,29 @@ static RLMResults<ToDoModel *> *todoModel;
 /// 編集画面を開く
 - (void)openTodoEdit:(NSInteger)row {
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[InputToDoViewController alloc] initWithsTodo:edit:row]];
+    if (@available(iOS 13.0, *)) {
+        navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
+    }
     [self presentViewController:navigationController animated:true completion:nil];
     
 }
 
 /// Todoの削除
 - (void)todoDelete:(NSInteger)row {
+    RLMResults<ToDoModel *> *dToDoModel = [ToDoModel objectsWhere:[NSString stringWithFormat:@"todoId == '%ld'", (NSInteger)row + 1]];
     
+    
+    
+    [realm beginWriteTransaction];
+    [realm deleteObject:dToDoModel.firstObject];
+    [realm commitWriteTransaction];
+    
+    [AlertManager alertAction:self
+                             :@"ToDoを削除しました"
+                      handler:^(UIAlertAction *action) {
+        [self.navigationController dismissViewControllerAnimated:true completion:nil];
+        [self viewWillAppear:true];
+    }];
 }
 
 @end
