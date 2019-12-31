@@ -81,8 +81,13 @@ InputToDoView *inputToDoView;
     
     if(self.mode != add && openTodo != nil) {
         inputToDoView.titleTextField.text = [NSString stringWithFormat:@"%1$@", openTodo.firstObject.title];
+        inputToDoView.todotitle = [NSString stringWithFormat:@"%1$@", openTodo.firstObject.title];
+        
         inputToDoView.dateTextField.text = [NSString stringWithFormat:@"%1$@", openTodo.firstObject.todoDate];
+        inputToDoView.tododate = [NSString stringWithFormat:@"%1$@", openTodo.firstObject.todoDate];
+        
         inputToDoView.detailTextView.text = [NSString stringWithFormat:@"%1$@", openTodo.firstObject.toDoDetail];
+        inputToDoView.tododetail = [NSString stringWithFormat:@"%1$@", openTodo.firstObject.toDoDetail];
         
         if(self.mode == detail) {
             inputToDoView.titleTextField.userInteractionEnabled = false;
@@ -132,20 +137,18 @@ InputToDoView *inputToDoView;
         }];
     } else if (self.mode == edit) {
         
-        
-        
-        
-        dispatch_async(dispatch_queue_create("background", 0), ^{
-            @autoreleasepool {
                 [realm beginWriteTransaction];
                 openTodo[0].title = inputToDoView.todotitle;
                 openTodo[0].todoDate = inputToDoView.tododate;
                 openTodo[0].toDoDetail = inputToDoView.tododetail;
                 [realm commitWriteTransaction];
-                
-            }
-        });
+
         
+        [AlertManager alertAction:self
+                                 :@"ToDoを更新しました"
+                          handler:^(UIAlertAction *action) {
+            [self.navigationController dismissViewControllerAnimated:true completion:nil];
+        }];
         
     }
 }
