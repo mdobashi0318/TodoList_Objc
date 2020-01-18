@@ -14,17 +14,18 @@
 
 @interface ToDoListViewController ()
 
+@property RLMRealm *realm;
+
+@property RLMResults<ToDoModel *> *todoModel;
+
 @end
 
 @implementation ToDoListViewController
 
 // MARK: Properties
 
-static RLMRealm *realm;
-
 ToDoListView *todolist;
 
-static RLMResults<ToDoModel *> *todoModel;
 
 
 
@@ -34,7 +35,7 @@ static RLMResults<ToDoModel *> *todoModel;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    realm = [RLMRealm defaultRealm];
+    self.realm = [RLMRealm defaultRealm];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightNavigationTap)];
     
@@ -57,11 +58,11 @@ static RLMResults<ToDoModel *> *todoModel;
     [super viewWillAppear:animated];
     
     
-    if(todoModel != nil){
-        todoModel = nil;
+    if(self.todoModel != nil){
+        self.todoModel = nil;
     }
-    todoModel = [ToDoModel allObjects];
-    todolist.todoModel = todoModel;
+    self.todoModel = [ToDoModel allObjects];
+    todolist.todoModel = self.todoModel;
     [todolist.todoTableView reloadData];
 }
 
@@ -104,9 +105,9 @@ static RLMResults<ToDoModel *> *todoModel;
     
     
     
-    [realm beginWriteTransaction];
-    [realm deleteObject:dToDoModel.firstObject];
-    [realm commitWriteTransaction];
+    [self.realm beginWriteTransaction];
+    [self.realm deleteObject:dToDoModel.firstObject];
+    [self.realm commitWriteTransaction];
     
     [AlertManager alertAction:self
                              :@"ToDoを削除しました"

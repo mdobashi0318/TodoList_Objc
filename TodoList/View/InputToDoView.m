@@ -10,14 +10,20 @@
 #import <Realm/Realm.h>
 
 
+@interface InputToDoView ()
+
+@property NSString *cellIdentifier;
+
+@end
+
+
+
 @implementation InputToDoView
 
 UITableView* inputTableView;
 
 
 // MARK: Properties
-
-static NSString *cellIdentifier = @"todoCell";
 
 UIDatePicker *datePicker;
 
@@ -30,15 +36,18 @@ UIDatePicker *datePicker;
     if (self) {
         self.backgroundColor = UIColor.whiteColor;
         
+        self.cellIdentifier = @"todoCell";
+        
         inputTableView = [[UITableView alloc] initWithFrame:self.frame style:UITableViewStyleGrouped];
         inputTableView.delegate = self;
         inputTableView.dataSource = self;
         inputTableView.separatorInset = UIEdgeInsetsZero;
-        [inputTableView registerClass:UITableViewCell.self forCellReuseIdentifier:cellIdentifier];
+        [inputTableView registerClass:UITableViewCell.self forCellReuseIdentifier:self.cellIdentifier];
         inputTableView.rowHeight = 50;
         inputTableView.allowsSelection = false;
-        
         [self addSubview:inputTableView];
+        
+        
         
         
         datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0,
@@ -59,7 +68,7 @@ UIDatePicker *datePicker;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
     
     
     switch (indexPath.section) {

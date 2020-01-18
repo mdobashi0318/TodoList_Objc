@@ -9,10 +9,18 @@
 #import "ToDoListView.h"
 #import "ToDoTableViewCell.h"
 
+
+
+@interface ToDoListView ()
+
+@property NSString *cellIdentifier;
+
+@end
+
 @implementation ToDoListView
 
 
-static NSString *cellIdentifier = @"todoCell";
+
 
 
 // MARK: init
@@ -21,12 +29,15 @@ static NSString *cellIdentifier = @"todoCell";
 {
     self = [super init];
     if (self) {
+        
+        self.cellIdentifier = @"todoCell";
+        
         self.todoTableView = [[UITableView alloc] init];
         self.todoTableView.frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, UIScreen.mainScreen.bounds.size.height);
         self.todoTableView.delegate = self;
         self.todoTableView.dataSource = self;
         self.todoTableView.separatorInset = UIEdgeInsetsZero;
-        [self.todoTableView registerClass:ToDoTableViewCell.self forCellReuseIdentifier:cellIdentifier];
+        [self.todoTableView registerClass:ToDoTableViewCell.self forCellReuseIdentifier:self.cellIdentifier];
         self.todoTableView.rowHeight = 65;
         [self addSubview:self.todoTableView];
     }
@@ -39,7 +50,7 @@ static NSString *cellIdentifier = @"todoCell";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
     if(self.todoModel.count == 0){
         cell.textLabel.text = @"Todoが登録されていません";
         

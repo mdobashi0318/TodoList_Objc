@@ -15,15 +15,19 @@
 
 @interface InputToDoViewController ()
 
+/// Realmのインスタンス
+@property RLMRealm *realm;
+
 @end
+
+
+
 
 @implementation InputToDoViewController
 
 
 // MARK: Propertiess
 
-/// Realmのインスタンス
-static RLMRealm *realm;
 
 /// 詳細、編集で開いたTodo
 RLMResults<ToDoModel *> *openTodo;
@@ -63,7 +67,7 @@ InputToDoView *inputToDoView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    realm = [RLMRealm defaultRealm];
+    self.realm = [RLMRealm defaultRealm];
     
     if(self.mode != detail) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(leftNavigationTap)];
@@ -126,8 +130,8 @@ InputToDoView *inputToDoView;
         todoModel.todoDate = inputToDoView.tododate;
         todoModel.toDoDetail = inputToDoView.tododetail;
         
-        [realm transactionWithBlock:^{
-            [realm addObject:todoModel];
+        [self.realm transactionWithBlock:^{
+            [self.realm addObject:todoModel];
         }];
         
         [AlertManager alertAction:self
@@ -137,11 +141,11 @@ InputToDoView *inputToDoView;
         }];
     } else if (self.mode == edit) {
         
-                [realm beginWriteTransaction];
+                [self.realm beginWriteTransaction];
                 openTodo[0].title = inputToDoView.todotitle;
                 openTodo[0].todoDate = inputToDoView.tododate;
                 openTodo[0].toDoDetail = inputToDoView.tododetail;
-                [realm commitWriteTransaction];
+                [self.realm commitWriteTransaction];
 
         
         [AlertManager alertAction:self
